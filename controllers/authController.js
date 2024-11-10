@@ -46,7 +46,7 @@ module.exports.loginUser = async function(req, res) {
         bcrypt.compare(password, user.password, function(err, result){
             if(result){
                 let token = generateToken(user);
-                res.cookie({"token": token});
+                res.cookie("token", token);
                 res.redirect("/shop")
             }
             else{
